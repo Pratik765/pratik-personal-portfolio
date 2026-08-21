@@ -11,8 +11,9 @@ export const DeveloperTerminal = () => {
   ]);
   const [input, setInput] = useState('');
   const [copied, setCopied] = useState(false);
-  const terminalEndRef = useRef(null);
+  const terminalContainerRef = useRef(null);
   const inputRef = useRef(null);
+  const isInitialMount = useRef(true);
 
   const availableCommands = [
     { cmd: 'help', desc: 'List all commands' },
@@ -25,7 +26,14 @@ export const DeveloperTerminal = () => {
   ];
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    // Only scroll the terminal's internal container, never the window
+    if (terminalContainerRef.current) {
+      terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
+    }
   }, [history]);
 
   const handleCommand = (rawCmd) => {
@@ -142,6 +150,7 @@ export const DeveloperTerminal = () => {
 
       {/* Terminal Screen */}
       <div
+        ref={terminalContainerRef}
         className="p-5 h-72 sm:h-80 overflow-y-auto space-y-3 bg-[#080c14] text-slate-300 selection:bg-indigo-500 selection:text-white"
         onClick={() => inputRef.current?.focus()}
       >
@@ -195,7 +204,6 @@ export const DeveloperTerminal = () => {
             spellCheck="false"
           />
         </div>
-        <div ref={terminalEndRef} />
       </div>
 
       {/* Quick click command chips */}

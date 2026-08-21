@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from './hooks/useTheme';
 import { MainLayout } from './layouts/MainLayout';
 import { Hero } from './sections/Hero';
@@ -17,6 +17,15 @@ import { Resume } from './sections/Resume';
 import { Contact } from './sections/Contact';
 
 export function App() {
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <ThemeProvider>
       <MainLayout>

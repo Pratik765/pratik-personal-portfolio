@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
   setTheme: () => {},
 });
@@ -14,12 +14,8 @@ export const ThemeProvider = ({ children }) => {
       if (savedTheme === 'dark' || savedTheme === 'light') {
         return savedTheme;
       }
-      // System preference fallback
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-      }
     }
-    return 'dark'; // Default theme is dark
+    return 'light'; // Default theme is light
   });
 
   useEffect(() => {
