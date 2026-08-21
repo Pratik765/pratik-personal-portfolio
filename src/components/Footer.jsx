@@ -104,10 +104,6 @@ export const Footer = () => {
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-2">
-            <span>Built with React 18 • Vite • Tailwind CSS • Framer Motion</span>
-          </div>
-
           <button
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors"

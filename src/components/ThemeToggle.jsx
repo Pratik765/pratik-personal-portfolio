@@ -11,7 +11,11 @@ export const ThemeToggle = ({ className = '' }) => {
     <button
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className={`relative p-2.5 rounded-2xl border border-slate-300 dark:border-slate-700/80 bg-slate-200/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 hover:border-amber-400/60 dark:hover:border-indigo-400/60 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:focus:ring-indigo-500/40 backdrop-blur-md group ${className}`}
+      className={`relative p-2.5 rounded-2xl border transition-all duration-200 focus:outline-none backdrop-blur-md group ${
+        isDark
+          ? 'border-indigo-500/30 bg-slate-900/90 text-indigo-300 hover:border-indigo-400/60 hover:shadow-[0_0_12px_rgba(99,102,241,0.25)] focus:ring-2 focus:ring-indigo-500/40'
+          : 'border-indigo-300/60 bg-white/90 text-indigo-600 hover:border-indigo-400 hover:shadow-[0_0_12px_rgba(99,102,241,0.2)] focus:ring-2 focus:ring-indigo-400/40'
+      } ${className}`}
     >
       <div className="relative w-5 h-5 flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>
@@ -33,7 +37,7 @@ export const ThemeToggle = ({ className = '' }) => {
               exit={{ y: 16, opacity: 0, rotate: 45 }}
               transition={{ duration: 0.2 }}
             >
-              <Sun className="w-5 h-5 text-amber-500 group-hover:text-amber-400 transition-colors" />
+              <Sun className="w-5 h-5 text-indigo-500 group-hover:text-indigo-600 transition-colors" />
             </motion.div>
           )}
         </AnimatePresence>

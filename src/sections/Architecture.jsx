@@ -1,43 +1,70 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SectionHeading } from '../components/SectionHeading';
-import { ArchitectureDiagram } from '../components/ArchitectureDiagram';
-import { ArchitectureModal } from '../components/ArchitectureModal';
 import { architectureSectionData } from '../data/portfolio';
-import { Boxes, GitFork, Network, Database, Maximize2, Sparkles, CheckCircle2 } from 'lucide-react';
+import {
+  Boxes, GitFork, Network, Database,
+  Monitor, Shield, Server, HardDrive,
+  ChevronRight, Layers, Cpu
+} from 'lucide-react';
+
+const flowNodes = [
+  {
+    id: 'ui',
+    label: 'React Frontend',
+    tech: 'React 19 • Tailwind • Redux Toolkit',
+    desc: 'Declarative SPA with responsive UI, custom hooks, protected routes, and Framer Motion transitions.',
+    icon: Monitor,
+    color: 'from-indigo-500 to-cyan-500',
+    borderColor: 'border-indigo-500/40',
+    bgGlow: 'bg-indigo-500/10',
+  },
+  {
+    id: 'gateway',
+    label: 'API Gateway',
+    tech: 'Express.js Reverse Proxy • Port :5000',
+    desc: 'Centralized edge routing, CORS, request logging, and delegation to downstream microservices.',
+    icon: Layers,
+    color: 'from-cyan-500 to-teal-400',
+    borderColor: 'border-cyan-500/40',
+    bgGlow: 'bg-cyan-500/10',
+  },
+  {
+    id: 'auth',
+    label: 'Auth & Security',
+    tech: 'JWT • Email OTP • RBAC Guards',
+    desc: 'Stateless token authentication, automated OTP pipelines, and 3-tier Role-Based Access Control.',
+    icon: Shield,
+    color: 'from-amber-500 to-orange-400',
+    borderColor: 'border-amber-500/40',
+    bgGlow: 'bg-amber-500/10',
+  },
+  {
+    id: 'services',
+    label: 'Microservices',
+    tech: 'User • Leave • Attendance • Payroll',
+    desc: 'Decoupled domain services on isolated ports (:5001–:5008) with interservice HTTP sync.',
+    icon: Cpu,
+    color: 'from-emerald-500 to-green-400',
+    borderColor: 'border-emerald-500/40',
+    bgGlow: 'bg-emerald-500/10',
+  },
+  {
+    id: 'db',
+    label: 'Isolated Databases',
+    tech: '8x MongoDB • Mongoose Schemas',
+    desc: 'Database-Per-Service pattern: each microservice owns its dedicated MongoDB instance.',
+    icon: HardDrive,
+    color: 'from-purple-500 to-violet-400',
+    borderColor: 'border-purple-500/40',
+    bgGlow: 'bg-purple-500/10',
+  },
+];
 
 export const Architecture = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [activeNode, setActiveNode] = useState(null);
 
-  const pillarIcons = {
-    Boxes,
-    GitFork,
-    Network,
-    Database,
-  };
-
-  const sampleProjectForModal = {
-    title: "MERN Stack Full-Scale Application",
-    technologies: ["React 18", "Redux Toolkit", "Node.js", "Express.js", "JWT", "MongoDB", "Mongoose", "Axios"],
-    architecture: {
-      title: "Complete Enterprise MERN Architecture Flow",
-      summary: "End-to-end data lifecycle from user interactions in React to NoSQL document persistence and cache layers.",
-      flowSteps: [
-        { label: "1. User Interaction & React UI", desc: "React 18 Functional Components with Tailwind styling and custom hooks" },
-        { label: "2. State & Data Cache", desc: "Redux Toolkit slices, RTK Query cache invalidation, and async thunks" },
-        { label: "3. Secure API Transport Layer", desc: "Axios client with Bearer Token interceptor, CSRF protection & error handler" },
-        { label: "4. Express Routing & Middleware", desc: "Modular express.Router(), JWT token verification, CORS & rate limiter" },
-        { label: "5. Controllers & Business Services", desc: "Request validation (Joi/Zod), domain service logic, transactional operations" },
-        { label: "6. MongoDB & Persistence", desc: "Mongoose ODM schemas, compound indexes, lean queries and aggregations" },
-      ]
-    },
-    keyFeatures: [
-      "Layered separation of concerns between presentation, state, and network",
-      "Stateless JWT access/refresh token authentication flow",
-      "Defensive error handling with custom Express error middleware",
-      "Optimistic UI updates with graceful fallback rollbacks"
-    ]
-  };
+  const pillarIcons = { Boxes, GitFork, Network, Database };
 
   return (
     <section id="architecture" className="py-20 sm:py-24 relative overflow-hidden bg-grid-pattern">
@@ -76,77 +103,138 @@ export const Architecture = () => {
           })}
         </div>
 
-        {/* Interactive Architecture Flow Panel */}
+        {/* Interactive Horizontal Architecture Flow */}
         <div className="p-6 sm:p-10 rounded-3xl bg-slate-950/90 border border-slate-800 shadow-2xl text-white relative overflow-hidden backdrop-blur-xl">
-          {/* Ambient background glow */}
+          {/* Background glows */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
-            <div>
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="px-3 py-1 rounded-full text-xs font-mono bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 text-cyan-300 border border-indigo-500/30 font-semibold">
-                  Standard Architecture
-                </span>
-                <span className="text-xs font-mono text-slate-400">Microservices & Layered MERN</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-display text-white">
-                End-to-End Microservices & MERN Pipeline
-              </h3>
+          <div className="relative z-10 mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="px-3 py-1 rounded-full text-xs font-mono bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 text-cyan-300 border border-indigo-500/30 font-semibold">
+                System Flow
+              </span>
+              <span className="text-xs font-mono text-slate-400">Click nodes to explore</span>
             </div>
-
-            <button
-              onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-glow-sm hover:shadow-glow-md transition-all self-start sm:self-auto active:scale-95"
-            >
-              <Maximize2 className="w-4 h-4" />
-              <span>Expand Full Spec Modal</span>
-            </button>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+              MERN Microservices Pipeline
+            </h3>
           </div>
 
-          {/* Interactive Architecture Diagram */}
-          <div className="relative z-10">
-            <ArchitectureDiagram
-              projectTitle="Enterprise Microservices & MERN Blueprint"
-              architectureData={{
-                flowSteps: [
-                  {
-                    label: "1. Presentation Layer (React 19 SPA)",
-                    tech: "React 19 • Tailwind CSS • Framer Motion • Redux",
-                    desc: "Declarative, responsive UI components with clean separation of concerns, accessible interactive forms, and custom hook abstractions.",
-                  },
-                  {
-                    label: "2. API Gateway & Reverse Proxy",
-                    tech: "Node.js • Express Gateway • Port :5000",
-                    desc: "Centralized edge routing delegating incoming /pc/* requests to corresponding microservices with CORS and logging.",
-                  },
-                  {
-                    label: "3. Microservices & Interservice Auth",
-                    tech: "JWT • Email OTP • Role-Based Access Control",
-                    desc: "Stateless authentication, automated OTP verification pipeline, and strict tiered access (ADMIN, HR, EMPLOYEE).",
-                  },
-                  {
-                    label: "4. Core Domain Microservices",
-                    tech: "User • Leave • Attendance • Payroll Services",
-                    desc: "Decoupled business logic services running on isolated ports (:5001 - :5008) with interservice HTTP synchronization.",
-                  },
-                  {
-                    label: "5. Database-Per-Service Persistence",
-                    tech: "8 Isolated MongoDB Databases • Mongoose Schemas",
-                    desc: "Complete data isolation where each microservice owns its dedicated database (pc_auth_db, pc_user_db, pc_payroll_db).",
-                  },
-                ]
-              }}
-            />
+          {/* Horizontal Flow — desktop */}
+          <div className="relative z-10 hidden lg:flex items-stretch justify-between gap-0">
+            {flowNodes.map((node, idx) => {
+              const Icon = node.icon;
+              const isActive = activeNode === node.id;
+              return (
+                <React.Fragment key={node.id}>
+                  <motion.button
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    whileHover={{ y: -4, transition: { duration: 0.15 } }}
+                    onClick={() => setActiveNode(isActive ? null : node.id)}
+                    className={`flex-1 p-5 rounded-2xl border transition-all duration-300 cursor-pointer text-left min-w-0 ${
+                      isActive
+                        ? `${node.borderColor} ${node.bgGlow} shadow-lg`
+                        : 'border-slate-800 bg-slate-900/60 hover:border-slate-700'
+                    }`}
+                  >
+                    <div className={`inline-flex p-2.5 rounded-xl bg-gradient-to-br ${node.color} mb-3 shadow-sm`}>
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h4 className="text-sm font-bold text-white mb-1 truncate">{node.label}</h4>
+                    <p className="text-[10px] font-mono text-slate-400 truncate">{node.tech}</p>
+                  </motion.button>
+
+                  {/* Animated connector arrow */}
+                  {idx < flowNodes.length - 1 && (
+                    <div className="flex items-center px-1 shrink-0">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 + 0.3 }}
+                      >
+                        <ChevronRight className="w-5 h-5 text-indigo-500/60" />
+                      </motion.div>
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
           </div>
+
+          {/* Vertical Flow — mobile/tablet */}
+          <div className="relative z-10 lg:hidden space-y-3">
+            {flowNodes.map((node, idx) => {
+              const Icon = node.icon;
+              const isActive = activeNode === node.id;
+              return (
+                <motion.button
+                  key={node.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.08 }}
+                  onClick={() => setActiveNode(isActive ? null : node.id)}
+                  className={`w-full p-4 rounded-2xl border transition-all duration-300 cursor-pointer text-left flex items-center gap-4 ${
+                    isActive
+                      ? `${node.borderColor} ${node.bgGlow} shadow-lg`
+                      : 'border-slate-800 bg-slate-900/60'
+                  }`}
+                >
+                  <div className={`p-2.5 rounded-xl bg-gradient-to-br ${node.color} shrink-0`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-bold text-white">{node.label}</h4>
+                    <p className="text-[10px] font-mono text-slate-400 truncate">{node.tech}</p>
+                  </div>
+                  <ChevronRight className={`w-4 h-4 text-slate-500 shrink-0 transition-transform ${isActive ? 'rotate-90' : ''}`} />
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Expandable detail panel */}
+          <AnimatePresence>
+            {activeNode && (
+              <motion.div
+                key={activeNode}
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: 'auto', marginTop: 24 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="relative z-10 overflow-hidden"
+              >
+                {flowNodes
+                  .filter((n) => n.id === activeNode)
+                  .map((node) => {
+                    const Icon = node.icon;
+                    return (
+                      <div
+                        key={node.id}
+                        className={`p-5 sm:p-6 rounded-2xl border ${node.borderColor} ${node.bgGlow}`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={`p-3 rounded-xl bg-gradient-to-br ${node.color} shrink-0`}>
+                            <Icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="text-base font-bold text-white mb-1">{node.label}</h4>
+                            <p className="text-xs font-mono text-slate-400 mb-3">{node.tech}</p>
+                            <p className="text-sm text-slate-300 leading-relaxed">{node.desc}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-
-        {/* Full Modal */}
-        <ArchitectureModal
-          isOpen={modalOpen}
-          onClose={() => setModalOpen(false)}
-          project={sampleProjectForModal}
-        />
       </div>
     </section>
   );

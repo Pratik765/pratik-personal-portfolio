@@ -17,18 +17,25 @@ import { personalInfo } from '../data/portfolio';
 export const About = () => {
   const pillars = [
     {
-      icon: Code,
-      title: "Frontend Engineering",
-      desc: "Specialized in React 18, state management with Redux Toolkit, custom hooks, component modularity, and high-performance UI rendering.",
+      icon: Layers,
+      title: "MERN Stack Development",
+      desc: "Architecting full-stack applications with MongoDB, Express.js, React 19, and Node.js — from database schemas to interactive frontends.",
       color: "text-indigo-400",
       border: "hover:border-indigo-500/50",
     },
     {
-      icon: Server,
-      title: "Full-Stack REST Architecture",
-      desc: "Constructing scalable Node.js & Express backends, JWT token authentication flows, rate-limiting, and REST API controllers.",
+      icon: Code,
+      title: "React.js & Frontend Architecture",
+      desc: "Specialized in custom hooks, Redux Toolkit state management, component modularity, performance optimization, and high-fidelity responsive UIs.",
       color: "text-cyan-400",
       border: "hover:border-cyan-500/50",
+    },
+    {
+      icon: Cpu,
+      title: "Microservices & API Engineering",
+      desc: "Building decoupled microservices with API Gateway reverse proxies, JWT authentication, Database-Per-Service patterns, and interservice HTTP pipelines.",
+      color: "text-emerald-400",
+      border: "hover:border-emerald-500/50",
     },
     {
       icon: Users,
@@ -36,13 +43,6 @@ export const About = () => {
       desc: "Trained 150+ aspiring developers at Know-IT C-DAC ACTS Pune in core JavaScript algorithms, React architecture, and MERN fundamentals.",
       color: "text-purple-400",
       border: "hover:border-purple-500/50",
-    },
-    {
-      icon: Cpu,
-      title: "Scalable Database Systems",
-      desc: "Designing persistent data models with MongoDB Atlas, Mongoose schemas, document aggregations, and MySQL relational queries.",
-      color: "text-emerald-400",
-      border: "hover:border-emerald-500/50",
     },
   ];
 

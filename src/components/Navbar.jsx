@@ -18,6 +18,7 @@ export const Navbar = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'architecture', label: 'Architecture' },
     { id: 'journey', label: 'Journey' },
+    { id: 'achievements', label: 'Achievements' },
     { id: 'resume', label: 'Resume' },
     { id: 'contact', label: 'Contact' },
   ];

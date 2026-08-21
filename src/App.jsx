@@ -11,6 +11,7 @@ import { Experience } from './sections/Experience';
 import { Projects } from './sections/Projects';
 import { Architecture } from './sections/Architecture';
 import { Journey } from './sections/Journey';
+import { Achievement } from './sections/Achievement';
 import { GitHub } from './sections/GitHub';
 import { Resume } from './sections/Resume';
 import { Contact } from './sections/Contact';
@@ -29,6 +30,7 @@ export function App() {
         <Projects />
         <Architecture />
         <Journey />
+        <Achievement />
         <GitHub />
         <Resume />
         <Contact />
