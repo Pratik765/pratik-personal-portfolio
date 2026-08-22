@@ -5,7 +5,7 @@ import { experience } from '../data/portfolio';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-20 sm:py-24 relative overflow-hidden bg-grid-pattern">
+    <section id="experience" className="py-14 sm:py-16 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Work & Mentorship"

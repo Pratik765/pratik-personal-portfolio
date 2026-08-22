@@ -7,7 +7,7 @@ import { CheckCircle2, TrendingUp, Sparkles } from 'lucide-react';
 
 export const Skills = () => {
   return (
-    <section id="skills" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="skills" className="py-14 sm:py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Proficiency"

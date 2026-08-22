@@ -7,7 +7,7 @@ import { githubProfileData } from '../data/portfolio';
 
 export const GitHub = () => {
   return (
-    <section id="github" className="py-20 sm:py-24 relative overflow-hidden bg-grid-pattern">
+    <section id="github" className="py-14 sm:py-16 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Open Source & Repositories"

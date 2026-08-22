@@ -26,7 +26,7 @@ export const Projects = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="projects" ref={sectionRef} className="py-14 sm:py-16 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-500/8 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-10 w-96 h-96 bg-purple-500/8 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />

@@ -9,7 +9,7 @@ import { personalInfo } from '../data/portfolio';
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-20 sm:py-24 relative overflow-hidden bg-grid-pattern">
+    <section id="contact" className="py-14 sm:py-16 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Banner CTA */}

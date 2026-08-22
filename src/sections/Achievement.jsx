@@ -5,7 +5,7 @@ import { SectionHeading } from '../components/SectionHeading';
 
 export const Achievement = () => {
   return (
-    <section id="achievements" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="achievements" className="py-14 sm:py-16 relative overflow-hidden">
       {/* Background glow effects that adapt to theme */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-amber-500/10 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />

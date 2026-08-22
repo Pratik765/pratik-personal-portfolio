@@ -97,7 +97,7 @@ export const TechStack = () => {
   }));
 
   return (
-    <section id="tech-stack" className="py-20 sm:py-28 relative overflow-hidden">
+    <section id="tech-stack" className="py-14 sm:py-16 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Technical Skills"
