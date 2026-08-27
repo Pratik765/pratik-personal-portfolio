@@ -29,7 +29,7 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-grid-pattern bg-radial-gradient"
+      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-radial-gradient"
     >
       {/* Background ambient neon spheres */}
       <div className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />

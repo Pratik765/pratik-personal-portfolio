@@ -67,7 +67,7 @@ export const Architecture = () => {
   const pillarIcons = { Boxes, GitFork, Network, Database };
 
   return (
-    <section id="architecture" className="py-16 sm:py-20 relative overflow-hidden bg-grid-pattern">
+    <section id="architecture" className="py-16 sm:py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Engineering Methodology"
