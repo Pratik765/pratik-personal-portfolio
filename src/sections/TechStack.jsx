@@ -97,8 +97,8 @@ export const TechStack = () => {
   }));
 
   return (
-    <section id="tech-stack" className="py-14 sm:py-16 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="tech-stack" className="py-16 sm:py-20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Technical Skills"
           title="Technologies & Core"
@@ -107,7 +107,7 @@ export const TechStack = () => {
         />
 
         {/* Category Rows */}
-        <div className="mt-14 space-y-10">
+        <div className="space-y-10">
           {grouped.map((group, i) => (
             <motion.div
               key={group.id}

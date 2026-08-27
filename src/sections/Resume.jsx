@@ -6,7 +6,7 @@ import { Download, Eye, FileText, CheckCircle2, Award, Briefcase, GraduationCap 
 
 export const Resume = () => {
   return (
-    <section id="resume" className="py-14 sm:py-16 relative overflow-hidden">
+    <section id="resume" className="py-16 sm:py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Curriculum Vitae"

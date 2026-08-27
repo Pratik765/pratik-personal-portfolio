@@ -26,7 +26,7 @@ export const Projects = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-14 sm:py-16 relative overflow-hidden">
+    <section id="projects" ref={sectionRef} className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-500/8 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-10 w-96 h-96 bg-purple-500/8 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -40,7 +40,7 @@ export const Projects = () => {
         />
 
         {/* ─── PATHWAY CONTAINER ─── */}
-        <div className="relative mt-16 sm:mt-20">
+        <div className="relative mt-4 sm:mt-6">
           {/* Vertical Central Pathway Spine Line */}
           <div className="absolute top-8 bottom-8 left-6 lg:left-1/2 lg:-translate-x-1/2 w-0.5 pointer-events-none">
             {/* Base spine track */}

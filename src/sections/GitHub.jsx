@@ -7,7 +7,7 @@ import { githubProfileData } from '../data/portfolio';
 
 export const GitHub = () => {
   return (
-    <section id="github" className="py-14 sm:py-16 relative overflow-hidden bg-grid-pattern">
+    <section id="github" className="py-16 sm:py-20 relative overflow-hidden bg-grid-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Open Source & Repositories"
@@ -17,7 +17,7 @@ export const GitHub = () => {
         />
 
         {/* GitHub Metrics Overview */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
           <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 text-center backdrop-blur-md shadow-sm hover:border-indigo-500/50 transition-all">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-indigo-500">
               {githubProfileData.stats.publicRepos}

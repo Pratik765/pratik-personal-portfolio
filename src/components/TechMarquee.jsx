@@ -65,7 +65,7 @@ export const TechMarquee = () => {
   );
 
   return (
-    <div className="w-full overflow-hidden py-14 bg-slate-950/95 border-y border-slate-800/80 relative">
+    <div className="w-full overflow-hidden py-12 sm:py-14 bg-slate-950/95 border-y border-slate-800/80 relative">
       {/* Left and right fade gradients */}
       <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-44 bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-44 bg-gradient-to-l from-slate-950 via-slate-950/95 to-transparent z-10 pointer-events-none" />
