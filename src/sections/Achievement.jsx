@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Trophy, GraduationCap, Sparkles, Star, CheckCircle2 } from 'lucide-react';
 import { SectionHeading } from '../components/SectionHeading';
+import convocationPhoto from '../assets/pratik-convocation.jpg';
+import profilePhoto from '../assets/pratik-photo.jpg';
 
 export const Achievement = () => {
   return (
@@ -36,11 +38,11 @@ export const Achievement = () => {
                   <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500 via-yellow-400 to-indigo-500 opacity-30 group-hover:opacity-60 blur-lg transition duration-500" />
                   <div className="relative rounded-2xl overflow-hidden border-2 border-amber-500/40 bg-slate-100 dark:bg-slate-900 w-full max-w-sm sm:max-w-md shadow-lg">
                     <img
-                      src="/pratik-convocation.jpg"
+                      src={convocationPhoto || "/pratik-convocation.jpg"}
                       alt="Pratik Kamble Convocation & University 2nd Ranker"
                       className="w-full h-auto object-cover max-h-[420px] transform group-hover:scale-105 transition duration-500"
                       onError={(e) => {
-                        e.target.src = '/pratik-photo.jpg';
+                        e.currentTarget.src = profilePhoto || '/pratik-photo.jpg';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />

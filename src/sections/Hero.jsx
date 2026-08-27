@@ -16,6 +16,7 @@ import {
 import { Github, Linkedin } from '../components/BrandIcons';
 import { personalInfo } from '../data/portfolio';
 import { scrollToSection } from '../utils/helpers';
+import profilePhoto from '../assets/pratik-photo.jpg';
 
 export const Hero = () => {
   const floatingIcons = [
@@ -151,9 +152,12 @@ export const Hero = () => {
               {/* Photo Card Container */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-slate-900 border-2 border-indigo-500/40 shadow-2xl p-1.5">
                 <img
-                  src={personalInfo.photoUrl}
+                  src={profilePhoto || personalInfo.photoUrl}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover object-center rounded-[20px]"
+                  onError={(e) => {
+                    e.currentTarget.src = personalInfo.photoUrl || '/pratik-photo.jpg';
+                  }}
                 />
 
                 {/* Bottom subtle glass gradient over photo */}
