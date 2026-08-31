@@ -5,7 +5,7 @@ import { AnimatedCounter } from '../components/AnimatedCounter';
 
 export const Stats = () => {
   return (
-    <section className="py-10 sm:py-12 relative z-10">
+    <section className="py-16 sm:py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {developerStats.map((stat, idx) => (

@@ -18,7 +18,7 @@ export const Contact = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-indigo-900/80 via-slate-900/90 to-cyan-950/80 border border-indigo-500/30 text-white shadow-2xl backdrop-blur-xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6"
+          className="mb-10 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-indigo-900/80 via-slate-900/90 to-cyan-950/80 border border-indigo-500/30 text-white shadow-2xl backdrop-blur-xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6"
         >
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -49,7 +49,7 @@ export const Contact = () => {
           subtitle="Send me a direct message through the form or test the interactive developer terminal below."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10">
           
           {/* Left Column: Direct Contact Info & Channels */}
           <div className="lg:col-span-5 space-y-4">

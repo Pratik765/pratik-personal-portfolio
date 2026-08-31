@@ -17,7 +17,7 @@ export const GitHub = () => {
         />
 
         {/* GitHub Metrics Overview */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
           <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 text-center backdrop-blur-md shadow-sm hover:border-indigo-500/50 transition-all">
             <div className="text-2xl sm:text-3xl font-display font-extrabold text-indigo-500">
               {githubProfileData.stats.publicRepos}
